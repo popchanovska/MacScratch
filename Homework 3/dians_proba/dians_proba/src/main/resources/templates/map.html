@@ -98,7 +98,7 @@
 
     // Add Markers
     let mapMarkers = {};
-    fetch("http://localhost:8080/api/GetMarkers")
+    fetch("https://macscratchdeploy-production.up.railway.app/api/GetMarkers")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -137,7 +137,7 @@
     let cityMarkers = {};
 
     // Fetch city data from the API
-    fetch("http://localhost:8080/api/GetCities")
+    fetch("https://macscratchdeploy-production.up.railway.app/api/GetCities")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
