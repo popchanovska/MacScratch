@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cities-monuments")
-
 public class Controller {
     @Autowired
     private MonumentService monumentService;
