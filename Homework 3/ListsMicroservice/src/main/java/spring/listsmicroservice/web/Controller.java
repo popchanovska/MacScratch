@@ -17,14 +17,12 @@ public class Controller {
     private final WishService wishService;
     private final VisitedService visitedService;
     private final FavoritesService favoritesService;
-    private final MonumentService monumentService;
     private final UserService userService;
 
-    public Controller(WishService wishService, VisitedService visitedService, FavoritesService favoritesService, MonumentService monumentService, UserService userService) {
+    public Controller(WishService wishService, VisitedService visitedService, FavoritesService favoritesService, UserService userService) {
         this.wishService = wishService;
         this.visitedService = visitedService;
         this.favoritesService = favoritesService;
-        this.monumentService = monumentService;
         this.userService = userService;
     }
 
@@ -34,7 +32,7 @@ public class Controller {
     public List<Monument> wishlist(@PathVariable String username) {
         Optional<User> user = userService.findByUsername(username);
         if (user.isPresent())
-            return wishService.getWishList(username);//todo: ako e prazna listata da se prenasoci na najava vo glavniot proekt
+            return wishService.getWishList(username);
         else
             return null;
     }
