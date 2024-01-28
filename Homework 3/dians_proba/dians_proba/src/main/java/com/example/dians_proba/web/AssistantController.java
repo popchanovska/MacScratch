@@ -28,7 +28,7 @@ public class AssistantController {
         User user = (User) request.getSession().getAttribute("user");
         if (user != null) {
             model.addAttribute("monuments", wishService.getWishList(user.getUsername()));
-            model.addAttribute("bodyContent", "wishlist");
+            model.addAttribute("bodyContent", "wishList");
         } else {
             model.addAttribute("bodyContent", "login_1");
         }
