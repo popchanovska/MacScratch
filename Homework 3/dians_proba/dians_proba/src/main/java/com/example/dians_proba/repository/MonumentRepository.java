@@ -8,6 +8,5 @@ import java.util.List;
 public interface MonumentRepository extends JpaRepository<Monument, Long> {
     Monument findByName(String name);
     List<Monument> findMonumentsByName(String name);
-
     List <Monument> findByLatLikeAndLonLike(String lat, String lon) ;
 }

@@ -29,8 +29,6 @@ public class VisitedServiceImpl implements VisitedService {
         User user = userRepository.findByUsername(username).orElse(null);
         Monument monument = monumentRepository.findByName(name);
         Visited visited = new Visited(user, monument);
-        //if(monument does not exist in visitedRepository)
-//        if(visitedRepository.findByMonument(monument).isEmpty())
         visitedRepository.save(visited);
     }
 

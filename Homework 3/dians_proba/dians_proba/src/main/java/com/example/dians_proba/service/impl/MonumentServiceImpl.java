@@ -30,5 +30,5 @@ public class MonumentServiceImpl implements MonumentService {
 
     public List<Monument> findMonumentByLatitudeAndLongitude(String lat, String lon) {
         return monumentRepository.findByLatLikeAndLonLike(lat, lon);
-    };
+    }
 }

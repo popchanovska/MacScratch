@@ -20,13 +20,9 @@ import java.util.List;
 @RequestMapping("/login")
 public class LoginController {
     private final AuthService authService;
-    private final MonumentService monumentService;
-    private final VisitedService visitedService;
 
-    public LoginController(AuthService authService, MonumentService monumentService, VisitedService visitedService) {
+    public LoginController(AuthService authService) {
         this.authService = authService;
-        this.monumentService = monumentService;
-        this.visitedService = visitedService;
     }
 
     @GetMapping
@@ -39,24 +35,9 @@ public class LoginController {
     public String login(HttpServletRequest request, Model model) {
         User user = null;
         try {
-//            System.out.println("Latitude: " + latitude);
-//            System.out.println("Longitude: " + longitude);
             user = this.authService.login(request.getParameter("username"),
                     request.getParameter("password"));
             request.getSession().setAttribute("user", user);
-
-//            user = (User) request.getSession().getAttribute("user");
-//
-//            String latitudeStr = String.valueOf(latitude);
-//            String longitudeStr = String.valueOf(longitude);
-//
-//            latitudeStr = latitudeStr.substring(0, latitudeStr.length() - 1);
-//            longitudeStr = longitudeStr.substring(0, longitudeStr.length() - 1);
-//
-//            List<Monument> nearbyMonuments = monumentService.findMonumentByLatitudeAndLongitude(latitudeStr, longitudeStr);
-//            nearbyMonuments.stream()
-//                    .forEach(monument -> visitedService.addToVisitedList(request.getParameter("username"), monument.getName()));
-
             return "redirect:/home";
         } catch (InvalidUserCredentialsException exception) {
             model.addAttribute("hasError", true);

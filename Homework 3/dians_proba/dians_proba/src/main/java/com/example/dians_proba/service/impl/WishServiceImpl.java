@@ -29,8 +29,6 @@ public class WishServiceImpl implements WishService {
         User user = userRepository.findByUsername(username).orElse(null);
         Monument monument = monumentRepository.findByName(name);
         Wish wish = new Wish(user, monument);
-        //if(monument does not exist in wishRepo)
-//        if(wishRepository.findByMonument(monument).isEmpty())
         wishRepository.save(wish);
     }
 

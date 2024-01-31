@@ -20,12 +20,10 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     public final MonumentRepository monumentRepostory;
     public final UserRepository userRepository;
-//    private final PasswordEncoder passwordEncoder;  //NOT REALLY NECESSARY2
 
     public UserServiceImpl(MonumentRepository monumentRepostory, UserRepository userRepository) {
         this.monumentRepostory = monumentRepostory;
         this.userRepository = userRepository;
-//        this.passwordEncoder = passwordEncoder; //NOT REALLY NECESSARY3
     }
 
     @Override
